@@ -9,9 +9,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
+      - name: Set up
+        run: |
+          cd react-client
+          rm package-lock.json
+          npm install
+          npm run build
       - uses: jsmrcaga/action-netlify-deploy@master
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_DEPLOY_KEY }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
           NETLIFY_DEPLOY_TO_PROD: true
+          appdir: "react-client/build"
