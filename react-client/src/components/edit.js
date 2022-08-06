@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
-const serverURI = process.env.REACT_APP_HEROKU_URI;
  
 export default function Edit() {
  const [form, setForm] = useState({
@@ -15,10 +14,10 @@ export default function Edit() {
  useEffect(() => {
    async function fetchData() {
      const id = params.id.toString();
-     const response = await fetch(`${serverURI}/record/${params.id.toString()}`);
+     const response = await fetch(`${process.env.REACT_APP_HEROKU_URI}/record/${params.id.toString()}`);
  
      if (!response.ok) {
-       const message = `An error has occurred: ${response.statusText} ${serverURI}`;
+       const message = `An error has occurred: ${response.statusText} ${process.env.REACT_APP_HEROKU_URI}`;
        window.alert(message);
        return;
      }
@@ -54,7 +53,7 @@ export default function Edit() {
    };
  
    // This will send a post request to update the data in the database.
-   await fetch(`${serverURI}/update/${params.id}`, {
+   await fetch(`${process.env.REACT_APP_HEROKU_URI}/update/${params.id}`, {
      method: "POST",
      body: JSON.stringify(editedPerson),
      headers: {

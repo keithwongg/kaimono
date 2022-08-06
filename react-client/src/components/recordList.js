@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-const serverURI = process.env.REACT_APP_HEROKU_URI;
  
 const Record = (props) => (
  <tr>
@@ -26,7 +25,7 @@ export default function RecordList() {
  // This method fetches the records from the database.
  useEffect(() => {
    async function getRecords() {
-     const response = await fetch(`${serverURI}/record/`);
+     const response = await fetch(`${process.env.REACT_APP_HEROKU_URI}/record/`);
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
@@ -45,7 +44,7 @@ export default function RecordList() {
  
  // This method will delete a record
  async function deleteRecord(id) {
-   await fetch(`${serverURI}/${id}`, {
+   await fetch(`${process.env.REACT_APP_HEROKU_URI}/${id}`, {
      method: "DELETE"
    });
  
