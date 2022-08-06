@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9ff23e91.css",
+    "main.js": "/static/js/main.b56dab1c.js",
+    "static/media/kaimono.png": "/static/media/kaimono.b32c1df48bd10155e13b.png",
+    "index.html": "/index.html",
+    "main.9ff23e91.css.map": "/static/css/main.9ff23e91.css.map",
+    "main.b56dab1c.js.map": "/static/js/main.b56dab1c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9ff23e91.css",
+    "static/js/main.b56dab1c.js"
+  ]
+}
