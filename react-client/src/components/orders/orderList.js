@@ -69,7 +69,7 @@ export default function OrdersShow() {
  
  // This following section will display the table with the orders of individuals.
  return (
-   <div>
+   <div className="orders-table">
      <h3 className="mt-4">Orders</h3>
      <table className="table table-striped" style={{ marginTop: 20 }}>
        <thead>

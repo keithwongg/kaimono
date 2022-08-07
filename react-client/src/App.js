@@ -21,14 +21,17 @@ const App = () => {
       <div className="overall-spacing">
         <p>Kaimono is a product and order management system</p>
         <div className="mb-4">
+          <Link className="btn mt-2 me-2 product-list" to="/">
+            Products List
+          </Link>
           <Link className="btn mt-2 me-2 create-product" to="/products/create">
             Create Product
           </Link>
+          <Link className="btn mt-2 me-2 order-list" to="/orders">
+            Orders List
+          </Link>
           <Link className="btn mt-2 me-2 create-order" to="/orders/create">
             Create Order
-          </Link>
-          <Link className="btn mt-2 me-2 show-order" to="/orders">
-            Show Orders
           </Link>
         </div>
         <Routes>
