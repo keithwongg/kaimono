@@ -153,6 +153,7 @@ export default function Edit() {
             options={products}
             onRemove={(e) => onMultiSelect(e)}
             onSelect={(e) => onMultiSelect(e)}
+            selectedValues={form.products}
             displayValue="name"
             emptyRecordMsg="No products ordered"
           />
@@ -160,10 +161,10 @@ export default function Edit() {
         <div className="form-group">
           <label htmlFor="payment_total">Payment Total</label>
           <input
-            type="text"
+            type="number"
             className="form-control"
             id="payment_total"
-            value={form.payment_total}
+            value={parseFloat(form.payment_total)}
             onChange={(e) => updateForm({ payment_total: e.target.value })}
             required="required"
           />

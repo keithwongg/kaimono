@@ -85,7 +85,7 @@ export default function Create() {
 
   return (
     <div className="order-container">
-      <h3>Create New Order</h3>
+      <h3>Add New Order</h3>
       <form className="form-container" onSubmit={onSubmit}>
         <div className="form-group">
           <label htmlFor="order_description">Order Description</label>
@@ -144,10 +144,10 @@ export default function Create() {
         <div className="form-group">
           <label htmlFor="payment_total">Payment Total</label>
           <input
-            type="text"
+            type="number"
             className="form-control"
             id="payment_total"
-            value={form.payment_total}
+            value={parseFloat(form.payment_total)}
             onChange={(e) => updateForm({ payment_total: e.target.value })}
             required="required"
           />

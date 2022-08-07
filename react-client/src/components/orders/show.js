@@ -23,7 +23,7 @@ const OrderDetails = (props) => (
           );
         })}
       <h5 className="card-title">Payment Total</h5>
-      <p className="card-text">{props.order.payment_totl}</p>
+      <p className="card-text">{props.order.payment_total}</p>
       <h5 className="card-title">Status</h5>
       <p className="card-text">{props.order.status}</p>
       <Link className="btn btn-primary" to={`/orders/edit/${props.order._id}`}>Edit</Link>

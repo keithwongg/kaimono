@@ -23,10 +23,14 @@
   overflow: scroll;
 }
 
+.order-container {
+  height: 100vh;
+  overflow: scroll;
+}
+
 @media (max-width: 450px) {
   .order-container {
     height: 50vh;
-    overflow: scroll;
   }
 
   .form-container {

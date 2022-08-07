@@ -67,7 +67,7 @@ export default function OrdersShow() {
  
  return (
    <div className="orders-table">
-     <h3 className="mt-4">Orders</h3>
+     <h3 className="mt-4">Orders List</h3>
      <div className="table-responsive table-container">
       <table className="table table-striped" style={{ marginTop: 20 }}>
         <thead>
