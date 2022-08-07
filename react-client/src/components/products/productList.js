@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import './products.css';
  
 const Product = (props) => (
  <tr>
@@ -68,8 +69,8 @@ export default function ProductList() {
  // This following section will display the table with the products of individuals.
  return (
    <div>
-     <Link class="btn btn-primary" to="/create">Create Product</Link>
-     <h3>Product List</h3>
+     <Link class="btn btn-primary mt-2" to="/create">Create Product</Link>
+     <h3 className="mt-4">Product List</h3>
      <table className="table table-striped" style={{ marginTop: 20 }}>
        <thead>
          <tr>
