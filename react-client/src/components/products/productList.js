@@ -45,7 +45,7 @@ export default function ProductList() {
  
  // This method will delete a record
  async function deleteProduct(id) {
-   await fetch(`${process.env.REACT_APP_HEROKU_URI}/${id}`, {
+   await fetch(`${process.env.REACT_APP_HEROKU_URI}/products/delete/${id}`, {
      method: "DELETE"
    });
  

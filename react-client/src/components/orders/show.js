@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
  
-const Product = (props) => (
+const Order = (props) => (
  <tr>
-   <td>{props.product.name}</td>
-   <td>{props.product.price}</td>
-   <td>{props.product.quantity}</td>
+   <td>{props.orders.order_information}</td>
+   <td>{props.orders.billing_address}</td>
+   <td>{props.orders.shipping_address}</td>
+   <td>{props.orders.payment_method}</td>
+   <td>{props.orders.orders}</td>
+   <td>{props.orders.payment_total}</td>
+   <td>{props.orders.status}</td>
    <td>
-     <Link className="btn btn-link" to={`/edit/${props.product._id}`}>Edit</Link> |
+     <Link className="btn btn-link" to={`/orders/edit/${props.orders._id}`}>Edit</Link> |
      <button className="btn btn-link"
        onClick={() => {
-         props.deleteProduct(props.product._id);
+         props.deleteOrder(props.orders._id);
        }}
      >
        Delete
@@ -19,13 +23,13 @@ const Product = (props) => (
  </tr>
 );
  
-export default function ProductList() {
- const [products, setProducts] = useState([]);
+export default function OrdersShow() {
+ const [orders, setOrders] = useState([]);
  
- // This method fetches the products from the database.
+ // This method fetches the orders from the database.
  useEffect(() => {
-   async function getProducts() {
-     const response = await fetch(`${process.env.REACT_APP_HEROKU_URI}/products/`);
+   async function getOrders() {
+     const response = await fetch(`${process.env.REACT_APP_HEROKU_URI}/orders/`);
  
      if (!response.ok) {
        const message = `An error occurred: ${response.statusText}`;
@@ -33,51 +37,55 @@ export default function ProductList() {
        return;
      }
  
-     const products = await response.json();
-     setProducts(products);
+     const orders = await response.json();
+     setOrders(orders);
    }
  
-   getProducts();
+   getOrders();
  
    return;
- }, [products.length]);
+ }, [orders.length]);
  
  // This method will delete a record
- async function deleteProduct(id) {
-   await fetch(`${process.env.REACT_APP_HEROKU_URI}/${id}`, {
+ async function deleteOrder(id) {
+   await fetch(`${process.env.REACT_APP_HEROKU_URI}/orders/delete/${id}`, {
      method: "DELETE"
    });
  
-   const newProducts = products.filter((el) => el._id !== id);
-   setProducts(newProducts);
+   const newProducts = orders.filter((el) => el._id !== id);
+   setOrders(newProducts);
  }
  
- // This method will map out the products on the table
- function productList() {
-   return products.map((product) => {
+ // This method will map out the orders on the table
+ function orderList() {
+   return orders.map((orders) => {
      return (
-       <Product
-         product={product}
-         deleteProduct={() => deleteProduct(product._id)}
-         key={product._id}
+       <Order
+         orders={orders}
+         deleteOrder={() => deleteOrder(orders._id)}
+         key={orders._id}
        />
      );
    });
  }
  
- // This following section will display the table with the products of individuals.
+ // This following section will display the table with the orders of individuals.
  return (
    <div>
-     <h3 className="mt-4">Product List</h3>
+     <h3 className="mt-4">Orders</h3>
      <table className="table table-striped" style={{ marginTop: 20 }}>
        <thead>
          <tr>
-           <th>Name</th>
-           <th>Price</th>
-           <th>Quantity</th>
+           <th>Order Information</th>
+           <th>Billing Address</th>
+           <th>Shipping Address</th>
+           <th>Payment Method</th>
+           <th>Products</th>
+           <th>Payment Total</th>
+           <th>Status</th>
          </tr>
        </thead>
-       <tbody>{productList()}</tbody>
+       <tbody>{orderList()}</tbody>
      </table>
    </div>
  );

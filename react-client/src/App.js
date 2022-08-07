@@ -9,6 +9,7 @@ import Navbar from "./components/navbar/navbar";
 import ProductsList from "./components/products/productList";
 import ProductsEdit from "./components/products/edit";
 import ProductsCreate from "./components/products/create";
+import OrdersEdit from "./components/orders/edit";
 import OrdersCreate from "./components/orders/create";
 import OrdersShow from "./components/orders/show";
 
@@ -33,6 +34,7 @@ const App = () => {
           <Route exact path="/" element={<ProductsList />} />
           <Route path="/products/edit/:id" element={<ProductsEdit />} />
           <Route path="/products/create" element={<ProductsCreate />} />
+          <Route path="/orders/edit/:id" element={<OrdersEdit />} />
           <Route path="/orders/create" element={<OrdersCreate />} />
           <Route path="/orders/show" element={<OrdersShow />} />
         </Routes>
