@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
+import Multiselect from "multiselect-react-dropdown";
 
 export default function Create() {
   const [form, setForm] = useState({
@@ -13,7 +14,34 @@ export default function Create() {
   });
   const navigate = useNavigate();
 
-  // These methods will update the state properties.
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    async function getProducts() {
+      const response = await fetch(
+        `${process.env.REACT_APP_HEROKU_URI}/products/`
+      );
+
+      if (!response.ok) {
+        const message = `An error occurred: ${response.statusText}`;
+        window.alert(message);
+        return;
+      }
+
+      const products_json = await response.json();
+      const products = products_json.map((product) => {
+        return {
+          id: product._id,
+          name: product.name,
+        };
+      }).flat();
+      setProducts(products);
+    }
+
+    getProducts();
+
+    return;
+  }, [products.length]);
+
   function updateForm(value) {
     return setForm((prev) => {
       return { ...prev, ...value };
@@ -24,7 +52,7 @@ export default function Create() {
     e.preventDefault();
 
     let newOrders = {
-      ...form
+      ...form,
     };
 
     await fetch(`${process.env.REACT_APP_HEROKU_URI}/orders/add`, {
@@ -48,6 +76,12 @@ export default function Create() {
       status: "",
     });
     navigate("/orders");
+  }
+
+  function onMultiSelect(e) {
+    // console.log(e, "testing");
+    updateForm({products: e});
+    console.log(form.products, "see form");
   }
 
   // This following section will display the form that takes the input from the user.
@@ -97,12 +131,11 @@ export default function Create() {
         </div>
         <div className="form-group">
           <label htmlFor="products">Products</label>
-          <input
-            type="text"
-            className="form-control"
-            id="products"
-            value={form.products}
-            onChange={(e) => updateForm({ products: e.target.value })}
+          <Multiselect
+            options={products}
+            onRemove={(e) => onMultiSelect(e)}
+            onSelect={(e) => onMultiSelect(e)}
+            displayValue="name"
           />
         </div>
         <div className="form-group">
