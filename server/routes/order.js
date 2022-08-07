@@ -37,7 +37,7 @@ orderRoutes.route("/orders/:id").get(function (req, res) {
 orderRoutes.route("/orders/add").post(function (req, response) {
  let db_connect = dbo.getDb();
  let myobj = {
-   order_information: req.body.order_information,
+   order_description: req.body.order_description,
    billing_address: req.body.billing_address,
    shipping_address: req.body.shipping_address,
    payment_method: req.body.payment_method,
@@ -56,7 +56,7 @@ orderRoutes.route("/orders/update/:id").post(function (req, response) {
  let myquery = { _id: ObjectId(req.params.id) };
  let newvalues = {
    $set: {
-    order_information: req.body.order_information,
+    order_description: req.body.order_description,
     billing_address: req.body.billing_address,
     shipping_address: req.body.shipping_address,
     payment_method: req.body.payment_method,

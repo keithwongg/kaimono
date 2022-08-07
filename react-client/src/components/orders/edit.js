@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router";
  
 export default function Edit() {
  const [form, setForm] = useState({
-    order_information: "",
+    order_description: "",
     billing_address: "",
     shipping_address: "",
     payment_method: "",
@@ -71,13 +71,13 @@ export default function Edit() {
      <h3>Update Order</h3>
            <form onSubmit={onSubmit}>
         <div className="form-group">
-          <label htmlFor="order_information">Order Information</label>
+          <label htmlFor="order_description">Order Description</label>
           <input
             type="text"
             className="form-control"
-            id="order_information"
-            value={form.order_information}
-            onChange={(e) => updateForm({ order_information: e.target.value })}
+            id="order_description"
+            value={form.order_description}
+            onChange={(e) => updateForm({ order_description: e.target.value })}
           />
         </div>
         <div className="form-group">

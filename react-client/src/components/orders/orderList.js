@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Order = (props) => (
  <tr>
    <td>{props.orders._id}</td>
-   <td>{props.orders.order_information}</td>
+   <td>{props.orders.order_description}</td>
    <td>{props.orders.payment_total}</td>
    <td>{props.orders.status}</td>
    <td>
@@ -75,7 +75,7 @@ export default function OrdersShow() {
        <thead>
          <tr>
            <th>Order Id</th>
-           <th>Order information</th>
+           <th>Order Description</th>
            <th>Payment Total</th>
            <th>Status</th>
          </tr>

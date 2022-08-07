@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 const OrderDetails = (props) => (
   <div>
     <h3>Order</h3>
-    <p>{props.order.order_information}</p>
+    <p>{props.order.order_description}</p>
     <p>{props.order.billing_address}</p>
     <p>{props.order.shipping_address}</p>
     <p>{props.order.payment_method}</p>
