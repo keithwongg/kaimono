@@ -25,7 +25,6 @@ const Order = (props) => (
 export default function OrdersShow() {
  const [orders, setOrders] = useState([]);
  
- // This method fetches the orders from the database.
  useEffect(() => {
    async function getOrders() {
      const response = await fetch(`${process.env.REACT_APP_HEROKU_URI}/orders/`);
@@ -45,7 +44,6 @@ export default function OrdersShow() {
    return;
  }, [orders.length]);
  
- // This method will delete a record
  async function deleteOrder(id) {
    await fetch(`${process.env.REACT_APP_HEROKU_URI}/orders/delete/${id}`, {
      method: "DELETE"
@@ -55,7 +53,6 @@ export default function OrdersShow() {
    setOrders(newProducts);
  }
  
- // This method will map out the orders on the table
  function orderList() {
    return orders.map((orders) => {
      return (
@@ -68,7 +65,6 @@ export default function OrdersShow() {
    });
  }
  
- // This following section will display the table with the orders of individuals.
  return (
    <div className="orders-table">
      <h3 className="mt-4">Orders</h3>

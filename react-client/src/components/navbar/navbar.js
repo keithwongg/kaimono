@@ -2,8 +2,6 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import kaimono from "../../images/kaimono.png";
 import './navbar.css';
-
-// We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
 
 export default function Navbar() {

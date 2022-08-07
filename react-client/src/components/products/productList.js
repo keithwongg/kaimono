@@ -23,7 +23,6 @@ const Product = (props) => (
 export default function ProductList() {
  const [products, setProducts] = useState([]);
  
- // This method fetches the products from the database.
  useEffect(() => {
    async function getProducts() {
      const response = await fetch(`${process.env.REACT_APP_HEROKU_URI}/products/`);
@@ -43,7 +42,6 @@ export default function ProductList() {
    return;
  }, [products.length]);
  
- // This method will delete a record
  async function deleteProduct(id) {
    await fetch(`${process.env.REACT_APP_HEROKU_URI}/products/delete/${id}`, {
      method: "DELETE"
@@ -53,7 +51,6 @@ export default function ProductList() {
    setProducts(newProducts);
  }
  
- // This method will map out the products on the table
  function productList() {
    return products.map((product) => {
      return (
@@ -66,7 +63,6 @@ export default function ProductList() {
    });
  }
  
- // This following section will display the table with the products of individuals.
  return (
    <div>
      <h3>Product List</h3>

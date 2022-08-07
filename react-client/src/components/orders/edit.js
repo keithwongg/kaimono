@@ -43,7 +43,6 @@ export default function Edit() {
    return;
  }, [params.id, navigate]);
  
- // These methods will update the state properties.
  function updateForm(value) {
    return setForm((prev) => {
      return { ...prev, ...value };
@@ -56,7 +55,6 @@ export default function Edit() {
       ...form
    };
  
-   // This will send a post request to update the data in the database.
    await fetch(`${process.env.REACT_APP_HEROKU_URI}/orders/update/${params.id}`, {
      method: "POST",
      body: JSON.stringify(editedOrder),

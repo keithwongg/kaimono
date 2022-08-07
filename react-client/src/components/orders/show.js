@@ -35,7 +35,6 @@ export default function OrdersShow() {
   const [order, setOrder] = useState([]);
 
   const params = useParams();
-  // This method fetches the orders from the database.
   useEffect(() => {
     async function getOrder() {
       const id = params.id.toString();
