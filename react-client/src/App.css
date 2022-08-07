@@ -1,0 +1,29 @@
+body {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+.overall-spacing {
+  margin: 24px;
+}
+
+.product-list {
+  background-color: #520DC2 !important;
+  color: #fff !important;
+}
+
+.create-product {
+  background-color: #8540F5 !important;
+  color: #fff !important;
+}
+
+.order-list {
+  background-color: #801F4F !important;
+  color: #fff !important;
+}
+
+.create-order {
+  background-color: #AB296A !important;
+  color: #fff !important;
+}

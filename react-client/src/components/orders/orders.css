@@ -1,0 +1,43 @@
+.orders-table {
+  overflow-x: scroll
+}
+
+.table-container {
+  overflow-x: scroll;
+  height: 100vh;
+  width: auto;
+  margin-bottom: 40px;
+}
+
+.update-order-container {
+  height: 100vh;
+  overflow: scroll;
+}
+
+.form-container {
+  margin-bottom: 50vh;
+}
+
+.card-container {
+  height: 60vh;
+  overflow: scroll;
+}
+
+.order-container {
+  height: 100vh;
+  overflow: scroll;
+}
+
+@media (max-width: 450px) {
+  .order-container {
+    height: 50vh;
+  }
+
+  .form-container {
+    margin-bottom: 20vh;
+  }
+
+  .card-container {
+    height: 50vh;
+  }
+}
