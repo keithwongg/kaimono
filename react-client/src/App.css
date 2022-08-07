@@ -1,9 +1,24 @@
-.overall-spacing {
-  margin: 24px;
-}
-
 body {
   position: fixed;
   height: 100%;
   width: 100%;
+}
+
+.overall-spacing {
+  margin: 24px;
+}
+
+.create-product {
+  background-color: #520DC2 !important;
+  color: #fff !important;
+}
+
+.create-order {
+  background-color: #8540F5 !important;
+  color: #fff !important;
+}
+
+.show-order {
+  background-color: #A370F7 !important;
+  color: #fff !important;
 }
