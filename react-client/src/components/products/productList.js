@@ -68,6 +68,7 @@ export default function ProductList() {
  // This following section will display the table with the products of individuals.
  return (
    <div>
+     <Link class="btn btn-primary" to="/create">Create Product</Link>
      <h3>Product List</h3>
      <table className="table table-striped" style={{ marginTop: 20 }}>
        <thead>

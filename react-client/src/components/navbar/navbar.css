@@ -1,0 +1,10 @@
+.nav-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo h1 {
+  margin-left: 12px;
+}
