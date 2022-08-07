@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import './orders.css';
  
 const Order = (props) => (
  <tr>
@@ -71,17 +72,19 @@ export default function OrdersShow() {
  return (
    <div className="orders-table">
      <h3 className="mt-4">Orders</h3>
-     <table className="table table-striped" style={{ marginTop: 20 }}>
-       <thead>
-         <tr>
-           <th>Order Id</th>
-           <th>Order Description</th>
-           <th>Payment Total</th>
-           <th>Status</th>
-         </tr>
-       </thead>
-       <tbody>{orderList()}</tbody>
-     </table>
+     <div className="table-responsive table-container">
+      <table className="table table-striped" style={{ marginTop: 20 }}>
+        <thead>
+          <tr>
+            <th>Order Id</th>
+            <th>Order Description</th>
+            <th>Payment Total</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>{orderList()}</tbody>
+      </table>
+     </div>
    </div>
  );
 }
