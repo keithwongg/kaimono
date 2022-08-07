@@ -78,7 +78,7 @@ export default function Create() {
             onChange={(e) => updateForm({ quantity: e.target.value })}
           />
         </div>
-        <div className="form-group">
+        <div className="form-group mt-3">
           <input
             type="submit"
             value="Create Product"

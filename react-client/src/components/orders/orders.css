@@ -8,3 +8,23 @@
   width: auto;
   margin-bottom: 40px;
 }
+
+.update-order-container {
+  height: 100vh;
+  overflow: scroll;
+}
+
+.form-container {
+  margin-bottom: 50vh;
+}
+
+@media (max-width: 450px) {
+  .order-container {
+    height: 50vh;
+    overflow: scroll;
+  }
+
+  .form-container {
+    margin-bottom: 20vh;
+  }
+}

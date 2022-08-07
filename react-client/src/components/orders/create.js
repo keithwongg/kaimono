@@ -86,9 +86,9 @@ export default function Create() {
 
   // This following section will display the form that takes the input from the user.
   return (
-    <div>
+    <div className="order-container">
       <h3>Create New Order</h3>
-      <form onSubmit={onSubmit}>
+      <form className="form-container" onSubmit={onSubmit}>
         <div className="form-group">
           <label htmlFor="order_description">Order Description</label>
           <input
@@ -158,7 +158,7 @@ export default function Create() {
             onChange={(e) => updateForm({ status: e.target.value })}
           />
         </div>
-        <div className="form-group">
+        <div className="form-group mt-3">
           <input
             type="submit"
             value="Create Product"

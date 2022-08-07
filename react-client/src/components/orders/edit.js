@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
+import './orders.css';
  
 export default function Edit() {
  const [form, setForm] = useState({
@@ -67,9 +68,9 @@ export default function Edit() {
  
  // This following section will display the form that takes input from the user to update the data.
  return (
-   <div>
+   <div className="order-container">
      <h3>Update Order</h3>
-           <form onSubmit={onSubmit}>
+      <form className="form-container" onSubmit={onSubmit}>
         <div className="form-group">
           <label htmlFor="order_description">Order Description</label>
           <input
@@ -140,7 +141,7 @@ export default function Edit() {
             onChange={(e) => updateForm({ status: e.target.value })}
           />
         </div>
-        <div className="form-group">
+        <div className="form-group mt-3">
           <input
             type="submit"
             value="Update Order"
