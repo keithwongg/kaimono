@@ -5,14 +5,13 @@ const express = require("express");
 // The router will be added as a middleware and will take control of requests starting with path /products.
 const productRoutes = express.Router();
  
-// This will help us connect to the database
+// Connect to the database
 const dbo = require("../db/conn");
  
-// This help convert the id from string to ObjectId for the _id.
+// Convert id from string to ObjectId for the _id.
 const ObjectId = require("mongodb").ObjectId;
  
  
-// This section will help you get a list of all the records.
 productRoutes.route("/products").get(function (req, res) {
  let db_connect = dbo.getDb("kaimono");
  db_connect
@@ -24,7 +23,6 @@ productRoutes.route("/products").get(function (req, res) {
    });
 });
  
-// This section will help you get a single products by id
 productRoutes.route("/products/:id").get(function (req, res) {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };
@@ -36,7 +34,6 @@ productRoutes.route("/products/:id").get(function (req, res) {
    });
 });
  
-// This section will help you create a new products.
 productRoutes.route("/products/add").post(function (req, response) {
  let db_connect = dbo.getDb();
  let myobj = {
@@ -50,7 +47,6 @@ productRoutes.route("/products/add").post(function (req, response) {
  });
 });
  
-// This section will help you update a products by id.
 productRoutes.route("/products/update/:id").post(function (req, response) {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };
@@ -70,7 +66,6 @@ productRoutes.route("/products/update/:id").post(function (req, response) {
    });
 });
  
-// This section will help you delete a products
 productRoutes.route("/:id").delete((req, response) => {
  let db_connect = dbo.getDb();
  let myquery = { _id: ObjectId(req.params.id) };
