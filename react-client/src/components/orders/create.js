@@ -79,9 +79,8 @@ export default function Create() {
   }
 
   function onMultiSelect(e) {
-    // console.log(e, "testing");
     updateForm({products: e});
-    console.log(form.products, "see form");
+    console.log(form.products, "added products");
   }
 
   // This following section will display the form that takes the input from the user.

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router";
+import Multiselect from "multiselect-react-dropdown";
 import './orders.css';
  
 export default function Edit() {
@@ -8,6 +9,7 @@ export default function Edit() {
     billing_address: "",
     shipping_address: "",
     payment_method: "",
+    products: "",
     payment_total: "",
     status: "",
     orders: [],
@@ -65,6 +67,39 @@ export default function Edit() {
  
    navigate("/orders");
  }
+
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    async function getProducts() {
+      const response = await fetch(
+        `${process.env.REACT_APP_HEROKU_URI}/products/`
+      );
+
+      if (!response.ok) {
+        const message = `An error occurred: ${response.statusText}`;
+        window.alert(message);
+        return;
+      }
+
+      const products_json = await response.json();
+      const products = products_json.map((product) => {
+        return {
+          id: product._id,
+          name: product.name,
+        };
+      }).flat();
+      setProducts(products);
+    }
+
+    getProducts();
+
+    return;
+  }, [products.length]);
+
+  function onMultiSelect(e) {
+    updateForm({products: e});
+    console.log(form.products, "added products");
+  }
  
  // This following section will display the form that takes input from the user to update the data.
  return (
@@ -113,12 +148,11 @@ export default function Edit() {
         </div>
         <div className="form-group">
           <label htmlFor="products">Products</label>
-          <input
-            type="text"
-            className="form-control"
-            id="products"
-            value={form.products}
-            onChange={(e) => updateForm({ products: e.target.value })}
+          <Multiselect
+            options={products}
+            onRemove={(e) => onMultiSelect(e)}
+            onSelect={(e) => onMultiSelect(e)}
+            displayValue="name"
           />
         </div>
         <div className="form-group">
