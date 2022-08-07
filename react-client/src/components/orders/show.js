@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const OrderDetails = (props) => (
   <div className="card card-container">
     <div className="card-header">
-      {props.order._id}
+      <p>Id: {props.order._id}</p>
     </div>
     <div className="card-body">
       <h5 className="card-title">Order Description</h5>
@@ -25,7 +26,7 @@ const OrderDetails = (props) => (
       <p className="card-text">{props.order.payment_totl}</p>
       <h5 className="card-title">Status</h5>
       <p className="card-text">{props.order.status}</p>
-      <a href="#" className="btn btn-primary">Go somewhere</a>
+      <Link className="btn btn-primary" to={`/orders/edit/${props.order._id}`}>Edit</Link>
     </div>
   </div>
 );

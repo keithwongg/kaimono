@@ -83,7 +83,6 @@ export default function Create() {
     console.log(form.products, "added products");
   }
 
-  // This following section will display the form that takes the input from the user.
   return (
     <div className="order-container">
       <h3>Create New Order</h3>
@@ -96,6 +95,7 @@ export default function Create() {
             id="order_description"
             value={form.order_description}
             onChange={(e) => updateForm({ order_description: e.target.value })}
+            required="required"
           />
         </div>
         <div className="form-group">
@@ -106,6 +106,7 @@ export default function Create() {
             id="billing_address"
             value={form.billing_address}
             onChange={(e) => updateForm({ billing_address: e.target.value })}
+            required="required"
           />
         </div>
         <div className="form-group">
@@ -116,6 +117,7 @@ export default function Create() {
             id="shipping_address"
             value={form.shipping_address}
             onChange={(e) => updateForm({ shipping_address: e.target.value })}
+            required="required"
           />
         </div>
         <div className="form-group">
@@ -126,6 +128,7 @@ export default function Create() {
             id="payment_method"
             value={form.payment_method}
             onChange={(e) => updateForm({ payment_method: e.target.value })}
+            required="required"
           />
         </div>
         <div className="form-group">
@@ -135,6 +138,7 @@ export default function Create() {
             onRemove={(e) => onMultiSelect(e)}
             onSelect={(e) => onMultiSelect(e)}
             displayValue="name"
+            emptyRecordMsg="No products ordered"
           />
         </div>
         <div className="form-group">
@@ -145,6 +149,7 @@ export default function Create() {
             id="payment_total"
             value={form.payment_total}
             onChange={(e) => updateForm({ payment_total: e.target.value })}
+            required="required"
           />
         </div>
         <div className="form-group">
@@ -155,6 +160,7 @@ export default function Create() {
             id="status"
             value={form.status}
             onChange={(e) => updateForm({ status: e.target.value })}
+            required="required"
           />
         </div>
         <div className="form-group mt-3">

@@ -101,7 +101,6 @@ export default function Edit() {
     console.log(form.products, "added products");
   }
  
- // This following section will display the form that takes input from the user to update the data.
  return (
    <div className="order-container">
      <h3>Update Order</h3>
@@ -114,6 +113,7 @@ export default function Edit() {
             id="order_description"
             value={form.order_description}
             onChange={(e) => updateForm({ order_description: e.target.value })}
+            required="required"
           />
         </div>
         <div className="form-group">
@@ -124,6 +124,7 @@ export default function Edit() {
             id="billing_address"
             value={form.billing_address}
             onChange={(e) => updateForm({ billing_address: e.target.value })}
+            required="required"
           />
         </div>
         <div className="form-group">
@@ -134,6 +135,7 @@ export default function Edit() {
             id="shipping_address"
             value={form.shipping_address}
             onChange={(e) => updateForm({ shipping_address: e.target.value })}
+            required="required"
           />
         </div>
         <div className="form-group">
@@ -144,6 +146,7 @@ export default function Edit() {
             id="payment_method"
             value={form.payment_method}
             onChange={(e) => updateForm({ payment_method: e.target.value })}
+            required="required"
           />
         </div>
         <div className="form-group">
@@ -153,6 +156,7 @@ export default function Edit() {
             onRemove={(e) => onMultiSelect(e)}
             onSelect={(e) => onMultiSelect(e)}
             displayValue="name"
+            emptyRecordMsg="No products ordered"
           />
         </div>
         <div className="form-group">
@@ -163,6 +167,7 @@ export default function Edit() {
             id="payment_total"
             value={form.payment_total}
             onChange={(e) => updateForm({ payment_total: e.target.value })}
+            required="required"
           />
         </div>
         <div className="form-group">
@@ -173,6 +178,7 @@ export default function Edit() {
             id="status"
             value={form.status}
             onChange={(e) => updateForm({ status: e.target.value })}
+            required="required"
           />
         </div>
         <div className="form-group mt-3">
