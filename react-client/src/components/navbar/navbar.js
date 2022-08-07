@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
+        <div className="container-fluid">
           <NavLink className="navbar-brand nav-logo" to="/">
             <img style={{ height: 40 + "px" }} src={kaimono}></img>
             <h1>Kaimono</h1>

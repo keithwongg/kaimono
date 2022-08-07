@@ -14,7 +14,7 @@ export default function Edit() {
  useEffect(() => {
    async function fetchData() {
      const id = params.id.toString();
-     const response = await fetch(`${process.env.REACT_APP_HEROKU_URI}/record/${params.id.toString()}`);
+     const response = await fetch(`${process.env.REACT_APP_HEROKU_URI}/products/${params.id.toString()}`);
  
      if (!response.ok) {
        const message = `An error has occurred: ${response.statusText} ${process.env.REACT_APP_HEROKU_URI}`;
@@ -48,8 +48,8 @@ export default function Edit() {
    e.preventDefault();
    const editedProduct = {
      name: form.name,
-     price: form.price,
-     quantity: form.quantity,
+     price: parseFloat(form.price).toFixed(2),
+     quantity: parseInt(form.quantity),
    };
  
    // This will send a post request to update the data in the database.
@@ -82,20 +82,20 @@ export default function Edit() {
        <div className="form-group">
          <label htmlFor="price">Price: </label>
          <input
-           type="text"
+           type="number"
            className="form-control"
            id="price"
-           value={form.price}
+           value={parseFloat(form.price)}
            onChange={(e) => updateForm({ price: e.target.value })}
          />
        </div>
        <div className="form-group">
          <label htmlFor="quantity">Quantity: </label>
          <input
-           type="text"
+           type="number"
            className="form-control"
            id="quantity"
-           value={form.quantity}
+           value={parseInt(form.quantity)}
            onChange={(e) => updateForm({ quantity: e.target.value })}
          />
        </div>
