@@ -28,7 +28,7 @@ export default function Edit() {
      const order = await response.json();
      if (!order) {
        window.alert(`Order with id ${id} not found`);
-       navigate("/orders/show");
+       navigate("/orders");
        return;
      }
  
@@ -62,7 +62,7 @@ export default function Edit() {
      },
    });
  
-   navigate("/orders/show");
+   navigate("/orders");
  }
  
  // This following section will display the form that takes input from the user to update the data.

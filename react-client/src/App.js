@@ -11,6 +11,7 @@ import ProductsEdit from "./components/products/edit";
 import ProductsCreate from "./components/products/create";
 import OrdersEdit from "./components/orders/edit";
 import OrdersCreate from "./components/orders/create";
+import OrdersList from "./components/orders/orderList";
 import OrdersShow from "./components/orders/show";
 
 const App = () => {
@@ -26,7 +27,7 @@ const App = () => {
           <Link className="btn mt-2 me-2 create-order" to="/orders/create">
             Create Order
           </Link>
-          <Link className="btn mt-2 me-2 show-order" to="/orders/show">
+          <Link className="btn mt-2 me-2 show-order" to="/orders">
             Show Orders
           </Link>
         </div>
@@ -36,7 +37,8 @@ const App = () => {
           <Route path="/products/create" element={<ProductsCreate />} />
           <Route path="/orders/edit/:id" element={<OrdersEdit />} />
           <Route path="/orders/create" element={<OrdersCreate />} />
-          <Route path="/orders/show" element={<OrdersShow />} />
+          <Route path="/orders" element={<OrdersList />} />
+          <Route path="/orders/:id" element={<OrdersShow />} />
         </Routes>
       </div>
     </div>
